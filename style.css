@@ -1,0 +1,326 @@
+/* Reset & Base Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body { 
+    font-family: 'Poppins', sans-serif; 
+    background-color: #0b0c10; 
+    color: #c5c6c7; 
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Navbar Styles */
+header { 
+    background-color: rgba(11, 12, 16, 0.85); 
+    padding: 18px 20px; 
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(102, 252, 241, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+nav { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    max-width: 1100px; 
+    margin: auto; 
+}
+
+nav .logo { 
+    font-size: 22px; 
+    font-weight: 700; 
+    color: #66fcf1; 
+    letter-spacing: 1px;
+}
+
+nav ul { 
+    list-style: none; 
+    display: flex; 
+    gap: 30px; 
+}
+
+nav ul li a { 
+    color: #c5c6c7; 
+    text-decoration: none; 
+    font-weight: 500; 
+    font-size: 15px;
+    position: relative;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #66fcf1;
+    transition: width 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+}
+
+nav ul li a:hover { 
+    color: #66fcf1; 
+}
+
+/* Layout Section */
+section { 
+    max-width: 1100px; 
+    margin: 0 auto;
+    padding: 100px 20px 60px 20px; 
+}
+
+h2 {
+    font-size: 32px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 60%;
+    height: 4px;
+    background: linear-gradient(90deg, #66fcf1, transparent);
+    border-radius: 2px;
+}
+
+/* Hero Section */
+#hero { 
+    min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding-top: 60px;
+}
+
+#hero h1 { 
+    font-size: 52px; 
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+#hero h1 span {
+    background: linear-gradient(90deg, #00adb5, #66fcf1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#hero p {
+    font-size: 18px;
+    color: #c5c6c7;
+    max-width: 700px;
+    margin-bottom: 35px;
+}
+
+.btn-primary {
+    background-color: transparent;
+    color: #66fcf1;
+    border: 2px solid #66fcf1;
+    padding: 12px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 6px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    box-shadow: 0 4px 14px rgba(102, 252, 241, 0.1);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-primary:hover {
+    background-color: #66fcf1;
+    color: #0b0c10;
+    box-shadow: 0 0 20px rgba(102, 252, 241, 0.4);
+    transform: translateY(-2px);
+}
+
+/* About Section */
+#about p {
+    font-size: 16px;
+    max-width: 900px;
+    color: #c5c6c7;
+    text-align: justify;
+}
+
+/* Projects Grid Modern & Responsive Fix */
+.project-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
+    margin-top: 35px; 
+    width: 100%;
+}
+
+.project-card { 
+    background-color: #1f2833; 
+    border-radius: 14px; 
+    border: 1px solid rgba(102, 252, 241, 0.05);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Perbaikan Kontainer Gambar Screenshot */
+.project-img-wrapper {
+    width: 100%;
+    height: 200px; /* Dinaikkan sedikit agar proporsi lebih pas */
+    overflow: hidden;
+    background-color: #151c24; /* Latar belakang abu-abu gelap agar sisi kosong portrait tetap rapi */
+    border-bottom: 1px solid rgba(102, 252, 241, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px; /* Memberikan ruang napas agar ujung screenshot tidak menempel ke tepi */
+}
+
+/* Perbaikan Gambar agar Tidak Terpotong */
+.project-img-wrapper img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Menampilkan seluruh gambar screenshot secara utuh */
+    border-radius: 6px; /* Sudut melengkung halus pada screenshot aplikasi */
+    transition: transform 0.5s ease;
+}
+
+.project-info {
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+    border-color: rgba(102, 252, 241, 0.3);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.project-card:hover .project-img-wrapper img {
+    transform: scale(1.04); /* Skala hover disesuaikan agar efek zoom contain tetap rapi */
+}
+
+.project-card h3 {
+    color: #ffffff;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    font-size: 14px;
+    color: #c5c6c7;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.tech-badge {
+    background-color: rgba(102, 252, 241, 0.08);
+    color: #66fcf1;
+    padding: 5px 12px;
+    font-size: 12px;
+    border-radius: 6px;
+    font-weight: 500;
+    border: 1px solid rgba(102, 252, 241, 0.15);
+}
+
+/* Contact Section */
+.contact-container {
+    margin-top: 30px;
+    background-color: #1f2833;
+    padding: 30px;
+    border-radius: 14px;
+    max-width: 600px;
+    border: 1px solid rgba(102, 252, 241, 0.05);
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-item svg {
+    width: 24px;
+    height: 24px;
+    fill: #66fcf1;
+    transition: transform 0.3s ease;
+}
+
+.contact-item:hover svg {
+    transform: scale(1.15);
+}
+
+.contact-item a {
+    color: #c5c6c7;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.contact-item a:hover {
+    color: #66fcf1;
+}
+
+/* Footer */
+footer { 
+    text-align: center; 
+    padding: 35px 20px; 
+    background-color: #0b0c10; 
+    color: #45a29e; 
+    font-size: 14px; 
+    margin-top: 100px; 
+    border-top: 1px solid rgba(102, 252, 241, 0.1);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    #hero h1 { font-size: 38px; }
+    #hero p { font-size: 16px; }
+    h2 { font-size: 26px; }
+    nav ul { gap: 20px; }
+    nav ul li a { font-size: 14px; }
+    .project-info { padding: 20px; }
+    .project-img-wrapper { height: 170px; padding: 8px; }
+}
